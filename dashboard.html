@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mission Control - Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+
+    <header class="main-header">
+        <div class="logo">
+            <a href="index.html">
+                <img src="Assets/logo.jpg" alt="Company Logo">
+            </a>
+        </div>
+        <nav class="main-nav">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="missions.html">Missions</a></li>
+                <li><a href="dashboard.html">Mission Control</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="dashboard-main">
+        <h2 class="section-title">Mission Control Dashboard</h2>
+        <div class="dashboard-grid">
+            <div class="dashboard-card status-card">
+                <h3>Mission Status</h3>
+                <p class="status-indicator active">Mission E1-26 In Progress</p>
+                <p>Status: All systems nominal.</p>
+            </div>
+            <div class="dashboard-card data-card" id="iss-location">
+                <h3>International Space Station</h3>
+                <p>Lat: --, Lon: --</p>
+            </div>
+            <div class="dashboard-card data-card" id="mars-weather">
+                <h3>Mars Weather</h3>
+                <p>Temp: --</p>
+            </div>
+            <div class="dashboard-card">
+                <h3>Astronaut Health Metrics</h3>
+                <p>Commander: Heart Rate 72 BPM</p>
+                <p>Pilot: Heart Rate 68 BPM</p>
+            </div>
+            <div class="dashboard-card">
+                <h3>Telemetry</h3>
+                <p>Orbital Velocity: 27,600 km/h</p>
+                <p>Fuel Level: 89%</p>
+            </div>
+            <div class="dashboard-card">
+                <h3>Upcoming Milestones</h3>
+                <p>Aug 20, 2025: Orbital Correction Burn</p>
+                <p>Sep 15, 2025: Martian Atmospheric Entry</p>
+            </div>
+        </div>
+    </main>
+
+    <footer class="main-footer">
+        <p>&copy; 2025 Space Explorers. All rights reserved.</p>
+        <div class="social-icons">
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+        </div>
+    </footer>
+    <script src="dashboard.js"></script>
+</body>
+</html>

@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Space Exploration</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+
+</head>
+<body>
+    <div class="parallax-bg-layer-1"></div>
+    <div class="parallax-bg-layer-2"></div>
+    <div class="parallax-bg-layer-3"></div>
+
+    <header>
+        <div class="header-left">
+            <div class="logo">
+                <h1>🚀 Space Explorers</h1>
+            </div>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#mission">Mission</a></li>
+                <li><a href="#countdown">Countdown</a></li>
+                <li><a href="#explore">Explore</a></li>
+                <li><a href="#gallery">Gallery</a></li>
+                <li><a href="solar.html">SolarSystem</a></li>
+                <li><a href="dashboard.html">Mission Control</a></li>
+            </ul>
+        </nav>
+        <div class="header-right">
+            <button id="theme-toggle" class="icon-btn" aria-label="Toggle dark/light theme">
+                <i class="fas fa-moon"></i>
+            </button>
+            <button id="audio-toggle" class="icon-btn" aria-label="Toggle background audio">
+                <i class="fas fa-volume-up"></i>
+            </button>
+            <select id="language-selector" aria-label="Select language">
+                <option value="en">EN</option>
+                <option value="hi">HI</option>
+                <option value="te">TE</option>
+            </select>
+        </div>
+    </header>
+
+
+
+    <section class="hero parallax-section" id="hero">
+        <div class="video-background">
+            <video autoplay muted loop playsinline>
+                <source src="https://assets.mixkit.co/videos/preview/mixkit-nebula-in-space-26033-large.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+        <div class="hero-content">
+            <h2 id="typing-text"></h2>
+            <p>Discover the unknown. Explore the universe.</p>
+            <a href="#countdown" class="btn">Start the Journey</a>
+        </div>
+    </section>
+
+    <section id="mission">
+        <div class="container">
+            <h2>🌠 Our Mission</h2>
+            <p>
+                Our mission is to push the boundaries of human knowledge and technology by exploring the vast unknown of the universe, uncovering its secrets, and inspiring future generations.
+            </p>
+        </div>
+    </section>
+
+    <section id="countdown" class="dark-section">
+        <div class="container">
+            <h2>Next Launch Countdown</h2>
+            <div class="countdown-timer">
+                <div class="time-block">
+                    <span id="days">00</span>
+                    <span>Days</span>
+                </div>
+                <div class="time-block">
+                    <span id="hours">00</span>
+                    <span>Hours</span>
+                </div>
+                <div class="time-block">
+                    <span id="minutes">00</span>
+                    <span>Minutes</span>
+                </div>
+                <div class="time-block">
+                    <span id="seconds">00</span>
+                    <span>Seconds</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="live-data">
+        <div class="container">
+            <h2>🛰️ Live Space Data</h2>
+            <div class="data-feed">
+                <div class="data-widget" id="iss-location">
+                    <h3>ISS Position</h3>
+                    <p>Loading...</p>
+                </div>
+                <div class="data-widget" id="mars-weather">
+                    <h3>Mars Weather</h3>
+                    <p>Loading...</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+<section id="explore">
+    <div class="container">
+        <h2>Explore a Planet</h2>
+        <p>Click on a planet to learn more about it.</p>
+        <div class="planet-grid">
+            <div class="planet-card" data-planet="mercury">
+                <img src="Assets/mercury.jpeg" alt="Mercury" />
+                <h3>Mercury</h3>
+            </div>
+            <div class="planet-card" data-planet="venus">
+                <img src="Assets/venus.jpeg" alt="Venus" />
+                <h3>Venus</h3>
+            </div>
+            <div class="planet-card" data-planet="earth">
+                <img src="Assets/earth.jpeg" alt="Earth" />
+                <h3>Earth</h3>
+            </div>
+            <div class="planet-card" data-planet="mars">
+                <img src="Assets/mars.jpeg" alt="Mars" />
+                <h3>Mars</h3>
+            </div>
+            <div class="planet-card" data-planet="jupiter">
+                <img src="Assets/jupiter.jpeg" alt="Jupiter" />
+                <h3>Jupiter</h3>
+            </div>
+            <div class="planet-card" data-planet="saturn">
+                <img src="Assets/saturn.jpeg" alt="Saturn" />
+                <h3>Saturn</h3>
+            </div>
+            <div class="planet-card" data-planet="uranus">
+                <img src="Assets/uranus.jpeg" alt="Uranus" />
+                <h3>Uranus</h3>
+            </div>
+            <div class="planet-card" data-planet="neptune">
+                <img src="Assets/neptune.jpeg" alt="Neptune" />
+                <h3>Neptune</h3>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <div id="planet-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h3 id="modal-title"></h3>
+            <img id="modal-image" src="" alt="" />
+            <p id="modal-description"></p>
+        </div>
+    </div>
+
+    <section id="solar-system-3d">
+        <div class="container">
+            <h2>Interactive Solar System</h2>
+            <p>Use your mouse to rotate and explore the planets in 3D!</p>
+            <div id="three-js-container">
+            </div>
+            <div id="planet-info-panel" class="hidden">
+                <button id="close-info-panel" class="icon-btn">&times;</button>
+                <img id="panel-image" src="" alt="Planet Image" />
+                <h3 id="panel-title"></h3>
+                <p id="panel-description"></p>
+            </div>
+        </div>
+    </section>
+
+    <section id="planet-comparison" class="dark-section">
+        <div class="container">
+            <h2>Planet Quick Stats</h2>
+            <div class="comparison-grid">
+                <div class="comparison-item">
+                    <h3>Planet</h3>
+                    <p>Earth</p>
+                    <p>Mars</p>
+                    <p>Jupiter</p>
+                </div>
+                <div class="comparison-item">
+                    <h3>Diameter</h3>
+                    <p>12,742 km</p>
+                    <p>6,779 km</p>
+                    <p>139,820 km</p>
+                </div>
+                <div class="comparison-item">
+                    <h3>Gravity</h3>
+                    <p>1 G</p>
+                    <p>0.38 G</p>
+                    <p>2.52 G</p>
+                </div>
+                <div class="comparison-item">
+                    <h3>Moons</h3>
+                    <p>1</p>
+                    <p>2</p>
+                    <p>95</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="gallery" class="dark-section">
+        <div class="container">
+            <h2>🌌 Space Gallery</h2>
+            <div class="image-gallery-grid">
+                <img src="Assets/nebula.jpeg" alt="Nebula" loading="lazy" />
+                <img src="Assets/gigantic.jpeg" alt="Giginatic" loading="lazy" />
+                <img src="Assets/curiosity.jpeg" alt="Curiosity" loading="lazy" />
+                <img src="Assets/earth_from_space.jpeg" alt="Earth from space" loading="lazy" />
+                <img src="Assets/stars.jpeg" alt="Stars" loading="lazy" />
+                <img src="Assets/astronaut.jpg" alt="Astronaut" loading="lazy" />
+            </div>
+        </div>
+    </section>
+
+
+    <section id="testimonials">
+        <div class="container">
+            <h2>From the Pioneers</h2>
+            <div class="quote-carousel">
+                <div class="quote-item active">
+                    <blockquote>"That's one small step for man, one giant leap for mankind."</blockquote>
+                    <cite>— Neil Armstrong</cite>
+                </div>
+                <div class="quote-item">
+                    <blockquote>"The Earth is a fine place and worth fighting for."</blockquote>
+                    <cite>— Carl Sagan</cite>
+                </div>
+                <div class="quote-item">
+                    <blockquote>"To be in space is to be an explorer. It’s what human beings do."</blockquote>
+                    <cite>— Sally Ride</cite>
+                </div>
+            </div>
+            <button class="quote-nav-btn prev-btn">&lt;</button>
+            <button class="quote-nav-btn next-btn">&gt;</button>
+        </div>
+    </section>
+
+    <section id="daily-fact" class="dark-section">
+        <div class="container">
+            <h2>Daily Space Fact</h2>
+            <div id="fact-widget">
+                <p>Loading today's fact...</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="future">
+        <div class="container">
+            <h2>🔭 The Future of Exploration</h2>
+            <p>
+                With advancements in AI and robotics, humans will one day establish colonies on Mars, mine asteroids, and maybe even travel to distant galaxies. Join us in building that future.
+            </p>
+            <form id="mission-signup-form">
+                <input type="email" placeholder="Sign up for the mission" required />
+                <button type="submit" class="btn">Join Now</button>
+            </form>
+            <div id="confirmation-message" class="hidden">
+                <p>Thank you for signing up! Your mission details are on their way.</p>
+            </div>
+            <button id="chatbot-toggle" class="icon-btn chatbot-btn" aria-label="Open space Q&A chatbot">
+                <i class="fas fa-robot"></i>
+            </button>
+            <div id="chatbot-window" class="hidden"></div>
+            <a href="#" class="btn ar-btn">
+                <i class="fas fa-vr-cardboard"></i> AR Mode Preview
+            </a>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Space Explorers. All rights reserved.</p>
+            <div class="social-media">
+                <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <button id="back-to-top" class="back-to-top-btn hidden">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <audio id="space-ambience-audio" loop>
+        <source src="audio/space-ambience.mp3" type="audio/mpeg" />
+    </audio>
+
+    <script src="script.js"></script>
+</body>
+</html>
